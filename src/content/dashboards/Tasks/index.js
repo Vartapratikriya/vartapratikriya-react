@@ -17,9 +17,9 @@ import PageTitleWrapper from 'src/components/PageTitleWrapper';
 
 import TopKeywords from './TopKeywords';
 import Wordcloud from './Wordcloud';
-import Projects from './Projects';
-import Checklist from './Checklist';
-import Profile from './Profile';
+import KeywordsTracking from './KeywordsTracking';
+import PopularTags from './PopularTags';
+import Language from './Language';
 import TaskSearch from './TaskSearch';
 
 const TabsContainerWrapper = styled(Box)(
@@ -172,34 +172,9 @@ function DashboardTasks() {
                 </Grid>
                 <Grid item xs={12}>
                   <Box p={4}>
-                    <Projects />
+                    <KeywordsTracking />
                   </Box>
                   <Divider />
-                </Grid>
-                <Grid item xs={12}>
-                  <Box
-                    sx={{
-                      background: `${theme.colors.alpha.black[5]}`
-                    }}
-                  >
-                    <Grid container spacing={0}>
-                      <Grid item xs={12} md={6}>
-                        <Box
-                          p={4}
-                          sx={{
-                            background: `${theme.colors.alpha.white[70]}`
-                          }}
-                        >
-                          <Checklist />
-                        </Box>
-                      </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Box p={4}>
-                          <Profile />
-                        </Box>
-                      </Grid>
-                    </Grid>
-                  </Box>
                 </Grid>
               </>
             )}
@@ -212,6 +187,21 @@ function DashboardTasks() {
             )}
           </Grid>
         </Card>
+      </Container>
+      <Container sx={{ mt: 3 }} maxWidth="lg">
+        <Grid container
+          direction="row"
+          justifyContent="center"
+          alignItems="stretch"
+          spacing={3}>
+          <Grid item xs={12} md={8}>
+            <Language />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <PopularTags />
+          <Grid/>
+        </Grid>
+      </Grid>
       </Container>
       <Footer />
     </>

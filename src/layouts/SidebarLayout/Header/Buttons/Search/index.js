@@ -202,7 +202,7 @@ function HeaderSearch() {
                       sx={{ fontWeight: 'bold' }}
                       variant="body2"
                     >
-                      Example Projects Application
+                      Example KeywordsTracking Application
                     </Link>
                   </Box>
                   <Typography

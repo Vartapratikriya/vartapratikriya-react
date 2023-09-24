@@ -41,7 +41,7 @@ const LinearProgressWrapper = styled(LinearProgress)(
 `
 );
 
-function Projects() {
+function KeywordsTracking() {
   const theme = useTheme();
   const [sentiment, setSentiment] = useState({});
   const [fact, setFact] = useState({});
@@ -82,7 +82,7 @@ function Projects() {
       </Box>
       <Grid container spacing={4}>
       {Object.keys(sentiment).map((cat) => (
-        <Grid item xs={12} md={4}>
+        <Grid key={cat} item xs={12} md={4}>
           <Box>
             <CardHeader
               sx={{
@@ -107,27 +107,27 @@ function Projects() {
             />
             <Box>
               <Typography variant="subtitle2" gutterBottom>
-                Sentiment index: 
+                Sentiment index: {' '}
                 <Text color="black">
                   <b>{sentiment[cat]?.toFixed(2)}</b>
                 </Text>
               </Typography>
               <LinearProgressWrapper
-                value={25}
-                color="primary"
+                value={Math.abs(((sentiment[cat] || 0) / (Object.values(sentiment).reduce((acc, currentValue) => acc + (currentValue || 0), 0) || 1)) * 100)}
+                color={sentiment[cat] < 0 ? "warning" : "primary"}
                 variant="determinate"
               />
             </Box>
             <Box>
               <Typography variant="subtitle2" gutterBottom>
-                Fact index: 
+                Fact index: {' '}
                 <Text color="black">
                   <b>{fact[cat]?.toFixed(2)}</b>
                 </Text>
               </Typography>
               <LinearProgressWrapper
-                value={25}
-                color="primary"
+                value={Math.abs(((fact[cat] || 0) / (Object.values(fact).reduce((acc, currentValue) => acc + (currentValue || 0), 0) || 1)) * 100)}
+                color={fact[cat] < 0 ? "warning" : "primary"}
                 variant="determinate"
               />
             </Box>
@@ -174,4 +174,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default KeywordsTracking;
