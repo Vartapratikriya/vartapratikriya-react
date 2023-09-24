@@ -88,7 +88,7 @@ function Sidebar() {
             size="small"
             fullWidth
           >
-            Contact us ! !
+            Contact Us
           </Button>
         </Box>
       </SidebarWrapper>
