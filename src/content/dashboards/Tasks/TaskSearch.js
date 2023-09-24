@@ -69,7 +69,6 @@ function TaskSearch() {
       }
     });
 
-    console.log('Value of sortFact:', sortFact);
 
     if (sortSentiment !== 'all') {
       filteredArticles = filteredArticles.filter(
