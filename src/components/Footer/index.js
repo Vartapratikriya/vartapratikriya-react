@@ -18,7 +18,7 @@ function Footer() {
       >
         <Box>
           <Typography variant="subtitle1">
-            &copy; 2023-VartaPratikriya
+            &copy; 2023 - VartaPratikriya
           </Typography>
         </Box>
         <Typography
@@ -29,7 +29,7 @@ function Footer() {
         >
           Crafted by{' '}
           <Link
-            href="https://bloomui.com"
+            href="https://github.com/Vartapratikriya"
             target="_blank"
             rel="noopener noreferrer"
           >
