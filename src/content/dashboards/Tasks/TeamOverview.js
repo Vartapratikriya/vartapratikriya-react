@@ -34,11 +34,11 @@ const LinearProgressWrapper = styled(LinearProgress)(
   ({ theme }) => `
         flex-grow: 1;
         height: 10px;
-        
+
         &.MuiLinearProgress-root {
           background-color: ${theme.colors.alpha.black[10]};
         }
-        
+
         .MuiLinearProgress-bar {
           border-radius: ${theme.general.borderRadiusXl};
         }

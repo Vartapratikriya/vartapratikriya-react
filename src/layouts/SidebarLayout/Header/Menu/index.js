@@ -125,6 +125,17 @@ function HeaderMenu() {
               }
             />
           </ListItem>
+          <ListItem
+            classes={{ root: 'MuiListItem-indicators' }}
+            button
+            component={NavLink}
+            to="/dashboards/tasks"
+          >
+            <ListItemText
+              primaryTypographyProps={{ noWrap: true }}
+              primary="Dashboard"
+            />
+          </ListItem>
         </List>
       </ListWrapper>
       <Menu anchorEl={ref.current} onClose={handleClose} open={isOpen}>
