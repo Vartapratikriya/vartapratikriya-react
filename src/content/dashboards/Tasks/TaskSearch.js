@@ -251,14 +251,14 @@ function TaskSearch() {
                     mr: 0.5
                   }}
                   size="small"
-                  label={article.sentiment}
+                  label={article.sentiment.charAt(0).toUpperCase() + article.sentiment.slice(1)}
                 />
                 <Chip
                   sx={{
                     mr: 0.5
                   }}
                   size="small"
-                  label={article.fact}
+                  label={article.fact.charAt(0) + article.fact.slice(1).toLowerCase()}
                 />
               </Box>
               <Typography
