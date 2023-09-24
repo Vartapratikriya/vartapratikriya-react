@@ -76,7 +76,7 @@ function KeywordsTracking() {
         <Typography variant="h3">Keywords Tracking</Typography>
         <Box>
           <Button size="small" variant="outlined">
-            View all projects
+            Configure
           </Button>
         </Box>
       </Box>
@@ -139,7 +139,7 @@ function KeywordsTracking() {
               }}
             >
               <Box>
-                <Tooltip arrow title="View project calendar" placement="top">
+                <Tooltip arrow title="Publish history" placement="top">
                   <IconButton
                     size="small"
                     color="secondary"

@@ -18,8 +18,10 @@ import PageTitleWrapper from 'src/components/PageTitleWrapper';
 import TopKeywords from './TopKeywords';
 import Wordcloud from './Wordcloud';
 import KeywordsTracking from './KeywordsTracking';
-import PopularTags from './PopularTags';
+import PieChart from './PieChart';
+import PolarArea from './PolarArea';
 import Language from './Language';
+import Category from './Category';
 import TaskSearch from './TaskSearch';
 
 const TabsContainerWrapper = styled(Box)(
@@ -110,8 +112,8 @@ function DashboardTasks() {
   const [currentTab, setCurrentTab] = useState('analytics');
 
   const tabs = [
-    { value: 'analytics', label: 'Analytics Overview' },
-    { value: 'taskSearch', label: 'Task Search' }
+    { value: 'analytics', label: 'Overview' },
+    { value: 'taskSearch', label: 'Articles' }
   ];
 
   const handleTabsChange = (event, value) => {
@@ -198,7 +200,22 @@ function DashboardTasks() {
             <Language />
           </Grid>
           <Grid item xs={12} md={4}>
-            <PopularTags />
+            <PieChart />
+          <Grid/>
+        </Grid>
+      </Grid>
+      </Container>
+      <Container sx={{ mt: 3 }} maxWidth="lg">
+        <Grid container
+          direction="row"
+          justifyContent="center"
+          alignItems="stretch"
+          spacing={3}>
+          <Grid item xs={14} md={5}>
+            <PolarArea />
+          </Grid>
+          <Grid item xs={14} md={7}>
+            <Category />
           <Grid/>
         </Grid>
       </Grid>

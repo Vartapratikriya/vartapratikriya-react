@@ -27,7 +27,7 @@ function Footer() {
           }}
           variant="subtitle1"
         >
-          Crafted by{' '}
+          Crafted with ❤️ by{' '}
           <Link
             href="https://github.com/Vartapratikriya"
             target="_blank"

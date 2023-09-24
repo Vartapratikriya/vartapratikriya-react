@@ -5,22 +5,20 @@ import {
   Card,
   CardHeader,
   Box,
-  useTheme,
 } from '@mui/material';
 
 
-function PopularTags() {
-  const theme = useTheme();
+function PolarArea() {
   const [languagePosts, setLanguagePosts] = useState([]);
   const [languageLabels, setLanguageLabels] = useState([]);
 
   useEffect(() => {
-    fetch('https://vartapratikriya-api.vercel.app/articles/headlines')
+    fetch('https://vartapratikriya-api.vercel.app/articles/categories')
         .then((response) => response.json())
         .then((data) => {
           const counts = data.articles.reduce((counts, obj) => {
-            const language = obj.language;
-            counts[language] = (counts[language] || 0) + 1;
+            const category = obj.category;
+            counts[category] = (counts[category] || 0) + 1;
             return counts;
           }, {});
           setLanguageLabels(Object.keys(counts).map(str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()));
@@ -33,8 +31,8 @@ function PopularTags() {
 
   const chartOptions = {
     chart: {
-      width: 380,
-      type: 'pie'
+      width: 390,
+      type: 'polarArea'
     },
     labels: languageLabels,
     fill: {
@@ -48,7 +46,7 @@ function PopularTags() {
       show: false
     },
     legend: {
-      position: 'bottom'
+      position: 'right'
     },
     plotOptions: {
       polarArea: {
@@ -60,14 +58,6 @@ function PopularTags() {
         },
       }
     },
-    theme: {
-      monochrome: {
-        enabled: true,
-        shadeTo: 'light',
-        color: theme.colors.primary.main,
-        shadeIntensity: 0.6
-      },
-    },
     dataLabels: {
       enabled: false
     }
@@ -76,7 +66,7 @@ function PopularTags() {
 
   return (
     <Card>
-      <CardHeader title="Article counts by language" />
+      <CardHeader title="Article counts by category" />
           <Box>
             <Box display="flex" alignItems="center" pb={2}>
               <Typography
@@ -100,12 +90,12 @@ function PopularTags() {
             <Chart
               options={chartOptions}
               series={chartData}
-              type="pie"
-              height={320}
+              type="polarArea"
+              height={390}
             />
           </Box>
     </Card>
   );
 }
 
-export default PopularTags;
+export default PolarArea;

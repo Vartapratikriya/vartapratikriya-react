@@ -62,7 +62,6 @@ function HeaderUserbox() {
   const user = {
     name: 'Admin',
     avatar: '/png/admin.png',
-    /* jobtitle: 'Project Manager' */
   };
 
   const ref = useRef(null);

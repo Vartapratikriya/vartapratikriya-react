@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButton } from '@mui/material';
-import Brightness4Icon from '@mui/icons-material/Brightness4'; // Moon icon for dark mode
-import Brightness5Icon from '@mui/icons-material/Brightness5'; // Sun icon for light mode
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness5Icon from '@mui/icons-material/Brightness5';
 
 const ModeToggle = ({ darkMode, toggleDarkMode }) => {
   return (

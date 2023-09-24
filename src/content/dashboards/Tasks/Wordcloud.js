@@ -33,7 +33,7 @@ function Wordcloud() {
           });
           const sortedWords = Object.entries(wordCount)
             .sort((a, b) => b[1] - a[1])
-            .slice(0, 75);
+            .slice(0, 70);
 
           const topWords = sortedWords.map(([value, count]) => ({ value, count }));
           setWords(topWords);

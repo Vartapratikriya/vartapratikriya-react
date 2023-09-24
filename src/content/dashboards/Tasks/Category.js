@@ -8,26 +8,26 @@ import {
   CardHeader,
 } from '@mui/material';
 
-function Language() {
+function Category() {
   const theme = useTheme();
 
   const [languageLabels, setlanguageLabels] = useState([]);
   const [sentiment, setSentiment] = useState([]);
   const [fact, setFact] = useState([]);
   useEffect(() => {
-    fetch('https://vartapratikriya-api.vercel.app/articles/sentiment?filterBy=language')
+    fetch('https://vartapratikriya-api.vercel.app/articles/sentiment?filterBy=category')
         .then((response) => response.json())
         .then((data) => {
-          setSentiment(Object.values(data));
+          setSentiment(Object.values(data).map(value => value.toFixed(2)));
           setlanguageLabels(Object.keys(data).map(str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()));
         })
         .catch((error) => {
           console.error('Error fetching data from API:', error);
         });
-    fetch('https://vartapratikriya-api.vercel.app/articles/fact?filterBy=language')
+    fetch('https://vartapratikriya-api.vercel.app/articles/fact?filterBy=category')
         .then((response) => response.json())
         .then((data) => {
-          setFact(Object.values(data));
+          setFact(Object.values(data).map(value => value.toFixed(2)));
         })
         .catch((error) => {
           console.error('Error fetching data from API:', error);
@@ -51,12 +51,23 @@ function Language() {
           columnWidth: '35%'
         }
       },
-      colors: [theme.colors.primary.main, theme.colors.secondary.main],
+      colors: [theme.colors.warning.main, theme.colors.primary.main],
       dataLabels: {
         enabled: false
       },
       fill: {
-        opacity: 1
+        type: 'gradient',
+        gradient: {
+          shade: 'dark',
+          type: "horizontal",
+          shadeIntensity: 0.5,
+          gradientToColors: undefined,
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 50, 100],
+          colorStops: [],
+        }
       },
       theme: {
         mode: theme.palette.mode
@@ -134,7 +145,7 @@ function Language() {
 
   return (
     <Card>
-      <CardHeader title="Languages" />
+      <CardHeader title="Categories" />
           <Box>
             <Box display="flex" alignItems="center" pb={2}>
               <Typography
@@ -158,12 +169,12 @@ function Language() {
             <Chart
               options={chartOptions}
               series={chartData}
-              type="bar"
-              height={270}
+              type="area"
+              height={320}
             />
           </Box>
     </Card>
   );
 }
 
-export default Language;
+export default Category;
