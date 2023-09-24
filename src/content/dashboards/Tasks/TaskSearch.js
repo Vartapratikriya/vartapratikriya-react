@@ -69,7 +69,6 @@ function TaskSearch() {
       }
     });
 
-
     if (sortSentiment !== 'all') {
       filteredArticles = filteredArticles.filter(
         (article) => article.sentiment.toLowerCase() === sortSentiment
@@ -156,31 +155,30 @@ function TaskSearch() {
           </Typography>
         </Box>
         <Box display="flex" alignItems="center">
-          <Typography
-            variant="subtitle2"
-            sx={{
-              pr: 1
-            }}
-          >
+          <Typography variant="subtitle2" sx={{ pr: 1 }}>
             Sort by:
           </Typography>
-          <Select
-            value={sortSentiment}
-            onChange={(e) => setSortSentiment(e.target.value)}
-          >
-            <MenuItem value="all">All Sentiments</MenuItem>
-            <MenuItem value="positive">Positive Sentiments</MenuItem>
-            <MenuItem value="neutral">Neutral Sentiments</MenuItem>
-            <MenuItem value="negative">Negative Sentiments</MenuItem>
-          </Select>
-          <Select
-            value={sortFact}
-            onChange={(e) => setSortFact(e.target.value)}
-          >
-            <MenuItem value="all">All Facts</MenuItem>
-            <MenuItem value="TRUE">True Facts</MenuItem>
-            <MenuItem value="FAKE">Fake Facts</MenuItem>
-          </Select>
+          <div style={{ marginRight: '20px' }}>
+            <Select
+              value={sortSentiment}
+              onChange={(e) => setSortSentiment(e.target.value)}
+            >
+              <MenuItem value="all">All Sentiments</MenuItem>
+              <MenuItem value="positive">Positive Sentiments</MenuItem>
+              <MenuItem value="neutral">Neutral Sentiments</MenuItem>
+              <MenuItem value="negative">Negative Sentiments</MenuItem>
+            </Select>
+          </div>
+          <div>
+            <Select
+              value={sortFact}
+              onChange={(e) => setSortFact(e.target.value)}
+            >
+              <MenuItem value="all">All Facts</MenuItem>
+              <MenuItem value="TRUE">True Facts</MenuItem>
+              <MenuItem value="FAKE">Fake Facts</MenuItem>
+            </Select>
+          </div>
         </Box>
       </Box>
       <Box display="flex" flexWrap="wrap" gap={1} py={1}>
