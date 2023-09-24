@@ -27,46 +27,6 @@ const LabelWrapper = styled(Box)(
 `
 );
 
-const MuiAvatar = styled(Box)(
-  ({ theme }) => `
-    width: ${theme.spacing(8)};
-    height: ${theme.spacing(8)};
-    border-radius: ${theme.general.borderRadius};
-    background-color: #e5f7ff;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto ${theme.spacing(2)};
-
-    img {
-      width: 60%;
-      height: 60%;
-      display: block;
-    }
-`
-);
-
-const JsAvatar = styled(Box)(
-  ({ theme }) => `
-    width: ${theme.spacing(8)};
-    height: ${theme.spacing(8)};
-    border-radius: ${theme.general.borderRadius};
-    background-color: #fef8d8;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto ${theme.spacing(2)};
-
-    img {
-      width: 60%;
-      height: 60%;
-      display: block;
-    }
-`
-);
-
 function Hero() {
   return (
     <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
@@ -108,42 +68,6 @@ function Hero() {
           >
             Key Features
           </Button>
-          <Grid container spacing={3} mt={5}>
-            <Grid item md={6}>
-              <MuiAvatar>
-                <img
-                  src="/static/images/logo/material-ui.svg"
-                  alt="Material-UI"
-                />
-              </MuiAvatar>
-              <Typography variant="h4">
-                <Box sx={{ pb: 2 }}>
-                  <b>Powered by MUI (Material-UI)</b>
-                </Box>
-                <Typography component="span" variant="subtitle2">
-                  A simple and customizable component library to build faster,
-                  beautiful, and accessible React apps.
-                </Typography>
-              </Typography>
-            </Grid>
-            <Grid item md={6}>
-              <JsAvatar>
-                <img
-                  src="/static/images/logo/javascript.svg"
-                  alt="Javascript"
-                />
-              </JsAvatar>
-              <Typography variant="h4">
-                <Box sx={{ pb: 2 }}>
-                  <b>Built with Javascript</b>
-                </Box>
-                <Typography component="span" variant="subtitle2">
-                  Tokyo Free React Admin Dashboard features a modern technology
-                  stack and is built with React + Javascript.
-                </Typography>
-              </Typography>
-            </Grid>
-          </Grid>
         </Grid>
       </Grid>
     </Container>

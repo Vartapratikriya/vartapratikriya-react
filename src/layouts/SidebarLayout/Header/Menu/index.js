@@ -133,7 +133,7 @@ function HeaderMenu() {
           >
             <ListItemText
               primaryTypographyProps={{ noWrap: true }}
-              primary="Dashboard"
+              primary="Analytics"
             />
           </ListItem>
         </List>

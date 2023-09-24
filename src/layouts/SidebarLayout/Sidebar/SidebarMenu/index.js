@@ -203,7 +203,7 @@ function SidebarMenu() {
                   to="/dashboards/tasks"
                   startIcon={<BrightnessLowTwoToneIcon />}
                 >
-                  Analystics
+                  Analytics
                 </Button>
               </ListItem>
             </List>
