@@ -45,7 +45,7 @@ function PageHeader() {
       .then((data) => {
         const dateTime = new Date(data["last_crawled"]);
         const year = dateTime.getFullYear();
-        const month = dateTime.getMonth() + 1; 
+        const month = dateTime.getMonth() + 1;
         const day = dateTime.getDate();
         const hours = dateTime.getHours();
         const minutes = dateTime.getMinutes();

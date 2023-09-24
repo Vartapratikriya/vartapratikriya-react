@@ -1,5 +1,4 @@
 import {
-  Box,
   Tooltip,
   Badge,
   tooltipClasses,
@@ -19,14 +18,14 @@ const LogoWrapper = styled(Link)(
 `
 );
 
-const LogoSignWrapper = styled(Box)(
+/* const LogoSignWrapper = styled(Box)(
   () => `
         width: 52px;
         height: 38px;
 `
-);
+); */
 
-const LogoSign = styled(Box)(
+/* const LogoSign = styled(Box)(
   ({ theme }) => `
         background: ${theme.general.reactFrameworkColor};
         width: 18px;
@@ -37,7 +36,7 @@ const LogoSign = styled(Box)(
         top: 3px;
         left: 17px;
 
-        &:after, 
+        &:after,
         &:before {
             content: "";
             display: block;
@@ -62,8 +61,8 @@ const LogoSign = styled(Box)(
         }
 `
 );
-
-const LogoSignInner = styled(Box)(
+ */
+/* const LogoSignInner = styled(Box)(
   ({ theme }) => `
         width: 16px;
         height: 16px;
@@ -74,7 +73,7 @@ const LogoSignInner = styled(Box)(
         border-radius: ${theme.general.borderRadiusSm};
         background: ${theme.header.background};
 `
-);
+); */
 
 const TooltipWrapper = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -98,7 +97,7 @@ function Logo() {
 
   return (
     <TooltipWrapper
-      title="Tokyo Free Black React Javascript Admin Dashboard"
+      title="VartaPratikriya"
       arrow
     >
       <LogoWrapper to="/overview">
@@ -112,13 +111,9 @@ function Logo() {
           }}
           overlap="circular"
           color="success"
-          badgeContent="2.0"
+          badgeContent="1.0"
         >
-          <LogoSignWrapper>
-            <LogoSign>
-              <LogoSignInner />
-            </LogoSign>
-          </LogoSignWrapper>
+        <img src="https://avatars.githubusercontent.com/u/144566551?s=200&v=4" alt="#" width="64" height="64"/>
         </Badge>
       </LogoWrapper>
     </TooltipWrapper>

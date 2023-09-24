@@ -18,7 +18,7 @@ function Footer() {
       >
         <Box>
           <Typography variant="subtitle1">
-            &copy; 2022 - Tokyo Free Black React Javascript Admin Dashboard
+            &copy; 2023-VartaPratikriya
           </Typography>
         </Box>
         <Typography
@@ -33,7 +33,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            BloomUI.com
+            Team Shiro
           </Link>
         </Typography>
       </Box>

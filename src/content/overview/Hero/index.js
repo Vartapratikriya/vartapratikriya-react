@@ -1,7 +1,4 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
-
-import { Link as RouterLink } from 'react-router-dom';
-
 import { styled } from '@mui/material/styles';
 
 const TypographyH1 = styled(Typography)(
@@ -80,9 +77,9 @@ function Hero() {
         container
       >
         <Grid item md={10} lg={8} mx="auto">
-          <LabelWrapper color="success">Version 2.0.0</LabelWrapper>
+          <LabelWrapper color="success">Version 1.0.0</LabelWrapper>
           <TypographyH1 sx={{ mb: 2 }} variant="h1">
-            Tokyo Free Black React Javascript Admin Dashboard
+            VartaPratikriya
           </TypographyH1>
           <TypographyH2
             sx={{ lineHeight: 1.5, pb: 4 }}
@@ -90,17 +87,15 @@ function Hero() {
             color="text.secondary"
             fontWeight="normal"
           >
-            High performance React template built with lots of powerful
-            Material-UI components across multiple product niches for fast &
-            perfect apps development processes
+           Welcome to Vartapratikriya, where responsible news moderation meets innovation! Our mission is to assist governments in curbing the spread of negative news by providing a comprehensive and intelligent news moderation system that operates on a state-by-state basis. In an age of information overload, it's crucial to ensure that news dissemination is responsible and free from sensationalism.
           </TypographyH2>
           <Button
-            component={RouterLink}
-            to="/dashboards/tasks"
-            size="large"
+           rel="noopener"
+           href="https://github.com/Vartapratikriya"
+           size="large"
             variant="contained"
           >
-            Browse Live Preview
+            Github
           </Button>
           <Button
             sx={{ ml: 2 }}
