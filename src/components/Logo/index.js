@@ -114,7 +114,7 @@ function Logo() {
           <Tooltip title="Version 2.0" arrow placement="right">
             <VersionBadge>2.0</VersionBadge>
           </Tooltip>
-          <LogoText>Tokyo Free Black</LogoText>
+          <LogoText>Vartapratikriya</LogoText>
         </LogoTextWrapper>
       </Box>
     </LogoWrapper>
