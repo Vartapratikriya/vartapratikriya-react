@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Button,
   Card,
@@ -13,17 +13,16 @@ import {
   Chip,
   Pagination,
   InputAdornment,
-  Menu,
   MenuItem,
   styled,
-  useTheme
+  useTheme,
+  Select
 } from '@mui/material';
 import { formatDistance } from 'date-fns';
 import TodayTwoToneIcon from '@mui/icons-material/TodayTwoTone';
-
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import Text from 'src/components/Text';
-import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
+
 import TranslateTwoToneIcon from '@mui/icons-material/TranslateTwoTone';
 
 const OutlinedInputWrapper = styled(OutlinedInput)(
@@ -41,6 +40,8 @@ function TaskSearch() {
   const articlesPerPage = 6;
 
   const [filters, setFilters] = useState([]);
+  const [sortSentiment, setSortSentiment] = useState('all');
+  const [sortFact, setSortFact] = useState('all');
 
   useEffect(() => {
     fetch('https://vartapratikriya-api-rumbleftw.vercel.app/articles/headlines')
@@ -59,10 +60,28 @@ function TaskSearch() {
     let filteredArticles = articles;
 
     filters.forEach((filter) => {
-      filteredArticles = filteredArticles.filter((article) =>
-        article[filter.type].toLowerCase().includes(filter.value.toLowerCase())
-      );
+      if (filter.type === 'language') {
+        filteredArticles = filteredArticles.filter((article) =>
+          article[filter.type]
+            .toLowerCase()
+            .includes(filter.value.toLowerCase())
+        );
+      }
     });
+
+    console.log('Value of sortFact:', sortFact);
+
+    if (sortSentiment !== 'all') {
+      filteredArticles = filteredArticles.filter(
+        (article) => article.sentiment.toLowerCase() === sortSentiment
+      );
+    }
+
+    if (sortFact !== 'all') {
+      filteredArticles = filteredArticles.filter(
+        (article) => article.fact === sortFact
+      );
+    }
 
     return filteredArticles;
   };
@@ -70,25 +89,6 @@ function TaskSearch() {
   const handlePageChange = (event, newPage) => {
     setCurrentPage(newPage);
   };
-
-  const periods = [
-    {
-      value: 'popular',
-      text: 'Most popular'
-    },
-    {
-      value: 'recent',
-      text: 'Recent tasks'
-    },
-    {
-      value: 'updated',
-      text: 'Latest updated tasks'
-    },
-    {
-      value: 'oldest',
-      text: 'Oldest tasks first'
-    }
-  ];
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -106,10 +106,6 @@ function TaskSearch() {
     setFilters(updatedFilters);
   };
 
-  const actionRef1 = useRef(null);
-  const [openPeriod, setOpenMenuPeriod] = useState(false);
-  const [period, setPeriod] = useState(periods[0].text);
-
   const filteredArticles = applyFilters(Articles);
 
   const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
@@ -125,12 +121,16 @@ function TaskSearch() {
       <FormControl variant="outlined" fullWidth>
         <OutlinedInputWrapper
           type="text"
-          placeholder="Search terms here..."
+          placeholder="Enter language here..."
           value={searchTerm}
           onChange={handleSearchChange}
           endAdornment={
             <InputAdornment position="end">
-              <Button variant="contained" size="small" onClick={() => addFilter('language', searchTerm)}>
+              <Button
+                variant="contained"
+                size="small"
+                onClick={() => addFilter('language', searchTerm)}
+              >
                 Add Filter
               </Button>
             </InputAdornment>
@@ -165,41 +165,23 @@ function TaskSearch() {
           >
             Sort by:
           </Typography>
-          <Button
-            size="small"
-            variant="outlined"
-            ref={actionRef1}
-            onClick={() => setOpenMenuPeriod(true)}
-            endIcon={<ExpandMoreTwoToneIcon fontSize="small" />}
+          <Select
+            value={sortSentiment}
+            onChange={(e) => setSortSentiment(e.target.value)}
           >
-            {period}
-          </Button>
-          <Menu
-            disableScrollLock
-            anchorEl={actionRef1.current}
-            onClose={() => setOpenMenuPeriod(false)}
-            open={openPeriod}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right'
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right'
-            }}
+            <MenuItem value="all">All Sentiments</MenuItem>
+            <MenuItem value="positive">Positive Sentiments</MenuItem>
+            <MenuItem value="neutral">Neutral Sentiments</MenuItem>
+            <MenuItem value="negative">Negative Sentiments</MenuItem>
+          </Select>
+          <Select
+            value={sortFact}
+            onChange={(e) => setSortFact(e.target.value)}
           >
-            {periods.map((_period) => (
-              <MenuItem
-                key={_period.value}
-                onClick={() => {
-                  setPeriod(_period.text);
-                  setOpenMenuPeriod(false);
-                }}
-              >
-                {_period.text}
-              </MenuItem>
-            ))}
-          </Menu>
+            <MenuItem value="all">All Facts</MenuItem>
+            <MenuItem value="TRUE">True Facts</MenuItem>
+            <MenuItem value="FAKE">Fake Facts</MenuItem>
+          </Select>
         </Box>
       </Box>
       <Box display="flex" flexWrap="wrap" gap={1} py={1}>
@@ -251,14 +233,19 @@ function TaskSearch() {
                     mr: 0.5
                   }}
                   size="small"
-                  label={article.sentiment.charAt(0).toUpperCase() + article.sentiment.slice(1)}
+                  label={
+                    article.sentiment.charAt(0).toUpperCase() +
+                    article.sentiment.slice(1)
+                  }
                 />
                 <Chip
                   sx={{
                     mr: 0.5
                   }}
                   size="small"
-                  label={article.fact.charAt(0) + article.fact.slice(1).toLowerCase()}
+                  label={
+                    article.fact.charAt(0) + article.fact.slice(1).toLowerCase()
+                  }
                 />
               </Box>
               <Typography
