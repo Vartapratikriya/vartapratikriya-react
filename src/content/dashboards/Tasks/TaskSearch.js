@@ -193,7 +193,7 @@ function TaskSearch() {
                   })}
                 </Typography>
               </Box>
-              <Link href="#" variant="h3" color="text.primary">
+              <Link href={article.url} variant="h3" color="text.primary">
                 {article.title}
               </Link>
               <Box
@@ -224,9 +224,11 @@ function TaskSearch() {
               >
                 {article.description}
               </Typography>
+              <Link href={article.url}>
               <Button size="small" variant="contained">
-                View task
+                View article
               </Button>
+              </Link>
               <Divider
                 sx={{
                   my: 2
