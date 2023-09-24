@@ -30,15 +30,17 @@ const OutlinedInputWrapper = styled(OutlinedInput)(
   ({ theme }) => `
     background-color: ${theme.colors.alpha.white[100]};
     padding-right: ${theme.spacing(0.7)}
-`
+  `
 );
 
 function TaskSearch() {
   const theme = useTheme();
-
+  const [searchTerm, setSearchTerm] = useState('');
   const [Articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 9;
+  const articlesPerPage = 6;
+
+  const [filters, setFilters] = useState([]);
 
   useEffect(() => {
     fetch('https://vartapratikriya-api-rumbleftw.vercel.app/articles/headlines')
@@ -52,13 +54,19 @@ function TaskSearch() {
         console.error('Error fetching data from API:', error);
       });
   }, []);
-  const totalPages = Math.ceil(Articles.length / articlesPerPage);
-  const indexOfLastArticle = currentPage * articlesPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = Articles.slice(
-    indexOfFirstArticle,
-    indexOfLastArticle
-  );
+
+  const applyFilters = (articles) => {
+    let filteredArticles = articles;
+
+    filters.forEach((filter) => {
+      filteredArticles = filteredArticles.filter((article) =>
+        article[filter.type].toLowerCase().includes(filter.value.toLowerCase())
+      );
+    });
+
+    return filteredArticles;
+  };
+
   const handlePageChange = (event, newPage) => {
     setCurrentPage(newPage);
   };
@@ -82,9 +90,35 @@ function TaskSearch() {
     }
   ];
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+    setCurrentPage(1);
+  };
+
+  const addFilter = (type, value) => {
+    const newFilter = { type, value };
+    setFilters([...filters, newFilter]);
+  };
+
+  const removeFilter = (index) => {
+    const updatedFilters = [...filters];
+    updatedFilters.splice(index, 1);
+    setFilters(updatedFilters);
+  };
+
   const actionRef1 = useRef(null);
   const [openPeriod, setOpenMenuPeriod] = useState(false);
   const [period, setPeriod] = useState(periods[0].text);
+
+  const filteredArticles = applyFilters(Articles);
+
+  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+  const indexOfLastArticle = currentPage * articlesPerPage;
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+  const currentArticles = filteredArticles.slice(
+    indexOfFirstArticle,
+    indexOfLastArticle
+  );
 
   return (
     <>
@@ -92,10 +126,12 @@ function TaskSearch() {
         <OutlinedInputWrapper
           type="text"
           placeholder="Search terms here..."
+          value={searchTerm}
+          onChange={handleSearchChange}
           endAdornment={
             <InputAdornment position="end">
-              <Button variant="contained" size="small">
-                Search
+              <Button variant="contained" size="small" onClick={() => addFilter('language', searchTerm)}>
+                Add Filter
               </Button>
             </InputAdornment>
           }
@@ -116,7 +152,7 @@ function TaskSearch() {
           <Typography variant="subtitle2">
             Showing{' '}
             <Text color="black">
-              <b>{Articles.length} articles</b>
+              <b>{filteredArticles.length} articles</b>
             </Text>
           </Typography>
         </Box>
@@ -165,6 +201,15 @@ function TaskSearch() {
             ))}
           </Menu>
         </Box>
+      </Box>
+      <Box display="flex" flexWrap="wrap" gap={1} py={1}>
+        {filters.map((filter, index) => (
+          <Chip
+            key={index}
+            label={`${filter.type}: ${filter.value}`}
+            onDelete={() => removeFilter(index)}
+          />
+        ))}
       </Box>
       <Grid container spacing={3}>
         {currentArticles.map((article, index) => (
@@ -225,9 +270,9 @@ function TaskSearch() {
                 {article.description}
               </Typography>
               <Link href={article.url}>
-              <Button size="small" variant="contained">
-                View article
-              </Button>
+                <Button size="small" variant="contained">
+                  View article
+                </Button>
               </Link>
               <Divider
                 sx={{
