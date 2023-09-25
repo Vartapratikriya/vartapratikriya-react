@@ -1,5 +1,6 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { NavLink } from 'react-router-dom';
 
 const TypographyH1 = styled(Typography)(
   ({ theme }) => `
@@ -59,14 +60,13 @@ function Hero() {
           </Button>
           <Button
             sx={{ ml: 2 }}
-            component="a"
-            target="_blank"
+            component={NavLink}
             rel="noopener"
-            href="https://bloomui.com/product/tokyo-free-black-react-javascript-material-ui-admin-dashboard"
+            to="/dashboards/Tasks"
             size="large"
-            variant="text"
+            variant="contained"
           >
-            Key Features
+            Dashboard
           </Button>
         </Grid>
       </Grid>

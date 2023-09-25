@@ -123,7 +123,7 @@ function DashboardTasks() {
   return (
     <>
       <Helmet>
-        <title>Tasks Dashboard</title>
+        <title>VartaPratikriya</title>
       </Helmet>
       <PageTitleWrapper>
         <PageHeader />

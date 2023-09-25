@@ -143,7 +143,8 @@ function TaskSearch() {
       <Box
         py={3}
         display="flex"
-        alignItems="center"
+        flexDirection={{ xs: 'column', sm: 'row' }} // Change flex direction for small screens
+        alignItems={{ xs: 'flex-start', sm: 'center' }} // Align items differently for small screens
         justifyContent="space-between"
       >
         <Box>
@@ -154,31 +155,32 @@ function TaskSearch() {
             </Text>
           </Typography>
         </Box>
-        <Box display="flex" alignItems="center">
-          <Typography variant="subtitle2" sx={{ pr: 1 }}>
+        <Box display="flex" alignItems="center" mt={{ xs: 2, sm: 0 }}>
+          {' '}
+          {/* Add margin-top for small screens */}
+          <Typography variant="subtitle2" sx={{ pr: { xs: 1, sm: 1 } }}>
+            {' '}
+            {/* Reduce right padding for small screens */}
             Sort by:
           </Typography>
-          <div style={{ marginRight: '20px' }}>
-            <Select
-              value={sortSentiment}
-              onChange={(e) => setSortSentiment(e.target.value)}
-            >
-              <MenuItem value="all">All Sentiments</MenuItem>
-              <MenuItem value="positive">Positive Sentiments</MenuItem>
-              <MenuItem value="neutral">Neutral Sentiments</MenuItem>
-              <MenuItem value="negative">Negative Sentiments</MenuItem>
-            </Select>
-          </div>
-          <div>
-            <Select
-              value={sortFact}
-              onChange={(e) => setSortFact(e.target.value)}
-            >
-              <MenuItem value="all">All Facts</MenuItem>
-              <MenuItem value="TRUE">True Facts</MenuItem>
-              <MenuItem value="FAKE">Fake Facts</MenuItem>
-            </Select>
-          </div>
+          <Select
+            value={sortSentiment}
+            onChange={(e) => setSortSentiment(e.target.value)}
+          >
+            <MenuItem value="all">All Sentiments</MenuItem>
+            <MenuItem value="positive">Positive Sentiments</MenuItem>
+            <MenuItem value="neutral">Neutral Sentiments</MenuItem>
+            <MenuItem value="negative">Negative Sentiments</MenuItem>
+          </Select>
+          <Select
+            sx={{ ml: { xs: 2, sm: 2 } }} // Add left margin for small screens
+            value={sortFact}
+            onChange={(e) => setSortFact(e.target.value)}
+          >
+            <MenuItem value="all">All Facts</MenuItem>
+            <MenuItem value="TRUE">True Facts</MenuItem>
+            <MenuItem value="FAKE">Fake Facts</MenuItem>
+          </Select>
         </Box>
       </Box>
       <Box display="flex" flexWrap="wrap" gap={1} py={1}>
