@@ -168,9 +168,9 @@ function TaskSearch() {
             onChange={(e) => setSortSentiment(e.target.value)}
           >
             <MenuItem value="all">All Sentiments</MenuItem>
-            <MenuItem value="positive">Positive Sentiments</MenuItem>
-            <MenuItem value="neutral">Neutral Sentiments</MenuItem>
-            <MenuItem value="negative">Negative Sentiments</MenuItem>
+            <MenuItem value="positive">Positive</MenuItem>
+            <MenuItem value="neutral">Neutral</MenuItem>
+            <MenuItem value="negative">Negative</MenuItem>
           </Select>
           <Select
             sx={{ ml: { xs: 2, sm: 2 } }} // Add left margin for small screens
@@ -178,8 +178,8 @@ function TaskSearch() {
             onChange={(e) => setSortFact(e.target.value)}
           >
             <MenuItem value="all">All Facts</MenuItem>
-            <MenuItem value="TRUE">True Facts</MenuItem>
-            <MenuItem value="FAKE">Fake Facts</MenuItem>
+            <MenuItem value="TRUE">True</MenuItem>
+            <MenuItem value="FAKE">Fake</MenuItem>
           </Select>
         </Box>
       </Box>

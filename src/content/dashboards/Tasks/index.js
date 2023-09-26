@@ -190,36 +190,40 @@ function DashboardTasks() {
           </Grid>
         </Card>
       </Container>
-      <Container sx={{ mt: 3 }} maxWidth="lg">
-        <Grid container
-          direction="row"
-          justifyContent="center"
-          alignItems="stretch"
-          spacing={3}>
-          <Grid item xs={12} md={8}>
-            <Language />
+      {currentTab === 'analytics' && (
+        <Container sx={{ mt: 3 }} maxWidth="lg">
+          <Grid container
+            direction="row"
+            justifyContent="center"
+            alignItems="stretch"
+            spacing={3}>
+                <Grid item xs={12} md={8}>
+                  <Language />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                  <PieChart />
+                <Grid/>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <PieChart />
-          <Grid/>
         </Grid>
-      </Grid>
-      </Container>
-      <Container sx={{ mt: 3 }} maxWidth="lg">
-        <Grid container
-          direction="row"
-          justifyContent="center"
-          alignItems="stretch"
-          spacing={3}>
-          <Grid item xs={14} md={5}>
-            <PolarArea />
+        </Container>
+      )}
+      {currentTab === 'analytics' && (
+        <Container sx={{ mt: 3 }} maxWidth="lg">
+          <Grid container
+            direction="row"
+            justifyContent="center"
+            alignItems="stretch"
+            spacing={3}>
+            <Grid item xs={14} md={5}>
+              <PolarArea />
+            </Grid>
+            <Grid item xs={14} md={7}>
+              <Category />
+            <Grid/>
           </Grid>
-          <Grid item xs={14} md={7}>
-            <Category />
-          <Grid/>
         </Grid>
-      </Grid>
-      </Container>
+        </Container>
+      )}
       <Footer />
     </>
   );

@@ -21,6 +21,9 @@ function TopKeywords() {
     fetch('https://vartapratikriya-api.vercel.app/articles/topKeywords')
         .then((response) => response.json())
         .then((data) => {
+          // setkeywordLabels(Object.keys(data[0]).map(function (str) {
+          //   return str.includes(' ') ? str.split(' ') : str;
+          // }));
           setkeywordLabels(Object.keys(data[0]));
           setkeywordCounts(Object.values(data[0]));
         })
@@ -79,7 +82,8 @@ function TopKeywords() {
       },
       labels: {
         style: {
-          colors: theme.palette.text.secondary
+          colors: theme.palette.text.secondary,
+          fontSize: '10px',
         }
       }
     },
