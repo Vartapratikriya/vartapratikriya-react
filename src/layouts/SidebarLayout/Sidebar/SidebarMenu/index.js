@@ -295,18 +295,18 @@ function SidebarMenu() {
                   to="/status/coming-soon"
                   startIcon={<AccountCircleTwoToneIcon />}
                 >
-                  Vartapratikriya Team
+                  VartaPratikriya Team
                 </Button>
               </ListItem>
               <ListItem component="div">
                 <Button
                   rel="noopener"
-                  href="https://github.com/Vartapratikriya"
+                  href="https://github.com/VartaPratikriya"
                   size="large"
                   variant="contained"
                   startIcon={<DisplaySettingsTwoToneIcon />}
                 >
-                  About Vartapratikriya
+                  About VartaPratikriya
                 </Button>
               </ListItem>
             </List>

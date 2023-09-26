@@ -76,7 +76,7 @@ function PageHeader() {
         </AvatarPageTitle>
         <Box>
           <Typography variant="h3" component="h3" gutterBottom>
-            Welcome to Vartapratikriya {version}!
+            Welcome to VartaPratikriya {version}!
           </Typography>
           <Typography variant="subtitle2">
             Last crawled on: {crawl}

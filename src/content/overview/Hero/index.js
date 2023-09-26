@@ -48,11 +48,11 @@ function Hero() {
             color="text.secondary"
             fontWeight="normal"
           >
-           Welcome to Vartapratikriya, where responsible news moderation meets innovation! Our mission is to assist governments in curbing the spread of negative news by providing a comprehensive and intelligent news moderation system that operates on a state-by-state basis. In an age of information overload, it's crucial to ensure that news dissemination is responsible and free from sensationalism.
+           Welcome to VartaPratikriya, where responsible news moderation meets innovation! Our mission is to assist governments in curbing the spread of negative news by providing a comprehensive and intelligent news moderation system that operates on a state-by-state basis. In an age of information overload, it's crucial to ensure that news dissemination is responsible and free from sensationalism.
           </TypographyH2>
           <Button
            rel="noopener"
-           href="https://github.com/Vartapratikriya"
+           href="https://github.com/VartaPratikriya"
            size="large"
             variant="contained"
           >

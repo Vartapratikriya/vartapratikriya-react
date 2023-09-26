@@ -29,7 +29,7 @@ function Footer() {
         >
           Crafted with ❤️ by{' '}
           <Link
-            href="https://github.com/Vartapratikriya"
+            href="https://github.com/VartaPratikriya"
             target="_blank"
             rel="noopener noreferrer"
           >
