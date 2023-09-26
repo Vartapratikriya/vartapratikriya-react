@@ -89,7 +89,7 @@ function HeaderMenu() {
             classes={{ root: 'MuiListItem-indicators' }}
             button
             component={NavLink}
-            to="/components/buttons"
+            to="/status/coming-soon"
           >
             <ListItemText
               primaryTypographyProps={{ noWrap: true }}
@@ -100,7 +100,7 @@ function HeaderMenu() {
             classes={{ root: 'MuiListItem-indicators' }}
             button
             component={NavLink}
-            to="/components/forms"
+            to="/status/coming-soon"
           >
             <ListItemText
               primaryTypographyProps={{ noWrap: true }}
@@ -129,7 +129,7 @@ function HeaderMenu() {
             classes={{ root: 'MuiListItem-indicators' }}
             button
             component={NavLink}
-            to="/dashboards/tasks"
+            to="/dashboards/news-articles"
           >
             <ListItemText
               primaryTypographyProps={{ noWrap: true }}

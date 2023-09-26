@@ -57,7 +57,7 @@ function HeaderNotifications() {
       <Tooltip arrow title="Notifications">
         <IconButton color="primary" ref={ref} onClick={handleOpen}>
           <NotificationsBadge
-            badgeContent={1}
+            badgeContent={0}
             anchorOrigin={{
               vertical: 'top',
               horizontal: 'right'
@@ -86,7 +86,7 @@ function HeaderNotifications() {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Typography variant="h5">Notifications</Typography>
+        <Typography variant="h5">Notifications</Typography>
         </Box>
         <Divider />
         <List sx={{ p: 0 }}>
@@ -96,10 +96,10 @@ function HeaderNotifications() {
             <Box flex="1">
               <Box display="flex" justifyContent="space-between">
                 <Typography sx={{ fontWeight: 'bold' }}>
-                  Messaging Platform
+                  Unfavourable news
                 </Typography>
                 <Typography variant="caption" sx={{ textTransform: 'none' }}>
-                  {formatDistance(subDays(new Date(), 3), new Date(), {
+                  {formatDistance(subDays(new Date(), 0), new Date(), {
                     addSuffix: true
                   })}
                 </Typography>
@@ -110,7 +110,7 @@ function HeaderNotifications() {
                 color="text.secondary"
               >
                 {' '}
-                new messages in your inbox
+                No unfavourable news as of yet!
               </Typography>
             </Box>
           </ListItem>

@@ -109,11 +109,11 @@ const TabsContainerWrapper = styled(Box)(
 function DashboardTasks() {
   const theme = useTheme();
 
-  const [currentTab, setCurrentTab] = useState('analytics');
+  const [currentTab, setCurrentTab] = useState('overview');
 
   const tabs = [
-    { value: 'analytics', label: 'Overview' },
-    { value: 'taskSearch', label: 'Articles' }
+    { value: 'overview', label: 'Overview' },
+    { value: 'articleSearch', label: 'Articles' }
   ];
 
   const handleTabsChange = (event, value) => {
@@ -133,7 +133,6 @@ function DashboardTasks() {
           <Tabs
             onChange={handleTabsChange}
             value={currentTab}
-            variant="scrollable"
             scrollButtons="auto"
             textColor="primary"
             indicatorColor="primary"
@@ -151,7 +150,7 @@ function DashboardTasks() {
             alignItems="stretch"
             spacing={0}
           >
-            {currentTab === 'analytics' && (
+            {currentTab === 'overview' && (
               <>
                 <Grid item xs={12}>
                   <Divider />
@@ -180,7 +179,7 @@ function DashboardTasks() {
                 </Grid>
               </>
             )}
-            {currentTab === 'taskSearch' && (
+            {currentTab === 'articleSearch' && (
               <Grid item xs={12}>
                 <Box p={4}>
                   <TaskSearch />
@@ -190,7 +189,7 @@ function DashboardTasks() {
           </Grid>
         </Card>
       </Container>
-      {currentTab === 'analytics' && (
+      {currentTab === 'overview' && (
         <Container sx={{ mt: 3 }} maxWidth="lg">
           <Grid container
             direction="row"
@@ -207,7 +206,7 @@ function DashboardTasks() {
         </Grid>
         </Container>
       )}
-      {currentTab === 'analytics' && (
+      {currentTab === 'overview' && (
         <Container sx={{ mt: 3 }} maxWidth="lg">
           <Grid container
             direction="row"

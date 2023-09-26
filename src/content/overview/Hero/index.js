@@ -62,7 +62,7 @@ function Hero() {
             sx={{ ml: 2 }}
             component={NavLink}
             rel="noopener"
-            to="/dashboards/Tasks"
+            to="/dashboards/news-articles"
             size="large"
             variant="contained"
           >

@@ -19,7 +19,7 @@ const Overview = Loader(lazy(() => import('src/content/overview')));
 
 // Dashboards
 
-const Tasks = Loader(lazy(() => import('src/content/dashboards/Tasks')));
+const NewsArticles = Loader(lazy(() => import('src/content/dashboards/NewsArticles')));
 
 // Applications
 
@@ -82,7 +82,7 @@ const routes = [
     children: [
       {
         path: '/',
-        element: <Navigate to="dashboards/tasks" replace />
+        element: <Navigate to="dashboards/news-articles" replace />
       },
       {
         path: 'overview',
@@ -125,11 +125,11 @@ const routes = [
     children: [
       {
         path: '',
-        element: <Navigate to="tasks" replace />
+        element: <Navigate to="news-articles" replace />
       },
       {
-        path: 'tasks',
-        element: <Tasks />
+        path: 'news-articles',
+        element: <NewsArticles />
       },
       {
         path: 'messenger',

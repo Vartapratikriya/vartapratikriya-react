@@ -36,11 +36,10 @@ function PolarArea() {
     },
     labels: languageLabels,
     fill: {
-      opacity: 1
+      opacity: 1,
     },
     stroke: {
-      width: 1,
-      colors: undefined
+      width: 0,
     },
     yaxis: {
       show: false
